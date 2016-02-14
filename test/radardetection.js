@@ -43,3 +43,47 @@ describe('RadarReceiver', function () {
     });
 });
 
+
+describe('MonostaticRadar', function () {
+    describe('when sendpower=125663.70614W, distance=1000.0m, crosssection and minreceivepower=1e-11', function () {
+        it('should call callback', function () {
+		var radar = new radardetect.MonostaticRadar({
+    			sndPower: 125663.70614, // 4*PI*10000.0
+    			antennaGain: 1.0,
+    			patternPropFactor: 1.0,
+			minReceivePower: 1e-11
+		});
+		var callbackCalled = false;
+
+		radar.detectContact(1000.0, 1.0, {}, function(ctc) {
+			callbackCalled = true;
+		});
+
+		assert.equal(true, callbackCalled);
+        });
+    });
+});
+
+
+describe('MonostaticRadar', function () {
+    describe('when sendpower=125663.70614W, distance=1000.0m, crosssection=1.0 and minreceivepower=1e-9', function () {
+        it('should not call callback', function () {
+		var radar = new radardetect.MonostaticRadar({
+    			sndPower: 125663.70614, // 4*PI*10000.0
+    			antennaGain: 1.0,
+    			patternPropFactor: 1.0,
+			minReceivePower: 1e-9
+		});
+		var callbackCalled = false;
+
+		radar.detectContact(1000.0, 1.0, {}, function(ctc) {
+			callbackCalled = true;
+		});
+
+		assert.equal(false, callbackCalled);
+        });
+    });
+});
+
+
+
