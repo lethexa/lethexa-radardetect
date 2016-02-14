@@ -13,8 +13,8 @@ Usage
 -----
 
 	var radardetect = require('lethexa-radardetect');
-        var targetDistanceSquared = Math.pow(10000.0, 2.0);
-        var targetCrossSection = 1.0;
+	var targetDistanceSquared = Math.pow(10000.0, 2.0);
+	var targetCrossSection = 1.0;
 
 	//////////////////////
 	// The sending path //
@@ -42,17 +42,17 @@ Usage
 	// The receiving path //
 	////////////////////////
 
-        var receiver = new radardetect.RadarReceiver({
-                antennaGain: 1.0,
-                patternPropFactor: 1.0
-        });
+	var receiver = new radardetect.RadarReceiver({
+		antennaGain: 1.0,
+		patternPropFactor: 1.0
+	});
 
-        var effectiveAperture = 1.0; // Antenna crossection
-        var powerDensityAtReceiver = receiver.calcPowerDensityAtReceiver(
-                targetDistanceSquared
-        );
-        var receivedPower = radardetect.calcPowerFromPowerDensity(
-                powerDensityAtReceiver,
-                effectiveAperture
-        );
-        console.log('Received power: ' + receivedPower);
+	var effectiveAperture = 1.0; // Antenna crossection
+	var powerDensityAtReceiver = receiver.calcPowerDensityAtReceiver(
+		targetDistanceSquared
+	);
+	var receivedPower = radardetect.calcPowerFromPowerDensity(
+		powerDensityAtReceiver,
+		effectiveAperture
+	);
+	console.log('Received power: ' + receivedPower);
