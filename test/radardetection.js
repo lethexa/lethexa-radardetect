@@ -45,7 +45,7 @@ describe('RadarReceiver', function () {
 
 
 describe('MonostaticRadar', function () {
-    describe('when sendpower=125663.70614W, distance=1000.0m, crosssection and minreceivepower=1e-11', function () {
+    describe('when sendpower=125663.70614W, distance=1000.0m, crosssection=1.0 and minreceivepower=1e-11', function () {
         it('should call callback', function () {
 		var radar = new radardetect.MonostaticRadar({
     			sndPower: 125663.70614, // 4*PI*10000.0
