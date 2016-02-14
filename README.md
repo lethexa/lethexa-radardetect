@@ -75,7 +75,7 @@ Usage
 		minReceivePower: 1e-11
 	});
 
-	radar.detectContact(1000.0, targetCrossSection,, {}, function(ctc) {
+	radar.detectContact(1000.0, targetCrossSection, {}, function(ctc) {
 		console.log(ctc);
 	});
 
