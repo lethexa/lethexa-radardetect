@@ -79,3 +79,10 @@ Usage
 		console.log(ctc);
 	});
 
+
+
+License
+-------
+
+This library is published under MIT license.
+
