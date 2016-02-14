@@ -6,7 +6,6 @@
  */
 
 /**
- * Provides functions for target detecion.
  * @class radardetect
  */
 module.exports = require('./lib/radardetection');
