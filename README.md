@@ -41,6 +41,7 @@ Usage
 	console.log('Reflected power: ' + reflectedPower + 'W');
 
 
+
 	////////////////////////
 	// The receiving path //
 	////////////////////////
@@ -60,3 +61,21 @@ Usage
 		effectiveAperture
 	);
 	console.log('Received power: ' + receivedPower + 'W');
+
+
+
+	//////////////////////
+	// Monostatic radar //
+	//////////////////////
+
+	var radar = new radardetect.MonostaticRadar({
+		sndPower: 125663.70614, // 4*PI*10000.0
+		antennaGain: 1.0,
+		patternPropFactor: 1.0,
+		minReceivePower: 1e-11
+	});
+
+	radar.detectContact(1000.0, targetCrossSection,, {}, function(ctc) {
+		console.log(ctc);
+	});
+

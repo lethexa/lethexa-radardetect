@@ -5,6 +5,7 @@ var sendPower = 1000000;
 
 console.log('Sendpower: ' + 1000000.0 + 'W')
 
+
 //////////////////////
 // The sending path //
 //////////////////////
@@ -27,6 +28,7 @@ var reflectedPower = radardetect.calcPowerFromPowerDensity(
 console.log('Reflected power: ' + reflectedPower + 'W');
 
 
+
 ////////////////////////
 // The receiving path //
 ////////////////////////
@@ -46,3 +48,21 @@ var receivedPower = radardetect.calcPowerFromPowerDensity(
     effectiveAperture
 );
 console.log('Received power: ' + receivedPower + 'W');
+
+
+
+//////////////////////
+// Monostatic radar //
+//////////////////////
+
+var radar = new radardetect.MonostaticRadar({
+    sndPower: 125663.70614, // 4*PI*10000.0
+    antennaGain: 1.0,
+    patternPropFactor: 1.0,
+    minReceivePower: 1e-11
+});
+
+radar.detectContact(1000.0, targetCrossSection, {}, function(ctc) {
+    console.log(ctc);
+});
+
